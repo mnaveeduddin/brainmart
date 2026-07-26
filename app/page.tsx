@@ -206,7 +206,7 @@ export default function Home() {
       </header> */}
 
       {/* Header */}
-      <header className="bg-gray-950 p-6 text-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-b-2 border-indigo-900 sticky top-0 z-50">
+      <header className="bg-gray-950 p-3 text-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-b-2 border-indigo-900 sticky top-0 z-50">
         <div className="relative w-full h-16 max-w-sm mx-auto mb-4">
           <div className="flex items-center justify-center w-full h-full bg-gray-900 text-indigo-300 italic rounded-md">
             [BrainMart Logo]
@@ -292,6 +292,53 @@ export default function Home() {
           ))}
         </section>
       </main>
+
+      {/* FIXED: Shopper Type Quiz Section */}
+      <section className="px-4 py-16 bg-gray-950 border-t border-gray-800 shadow-3xl text-center">
+        <div className="max-w-xl mx-auto">
+          <h2 className="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Ready to Discover Your Shopping Personality?</h2>
+          <p className="text-gray-400 text-sm mb-8 max-w-sm mx-auto">Discover Your Shopping Personality! Answer 5 quick questions to find out what kind of consumer you are and how marketing influences your buying decisions.</p>
+
+          {!showResult ? (
+            <div className="space-y-6">
+              <div className="p-4 bg-gray-900 rounded-lg text-lg text-gray-100 font-semibold border border-indigo-700">
+                Q{currentQuestionIndex + 1}: {questions[currentQuestionIndex].text}
+              </div>
+              <div className="grid grid-cols-1 gap-3">
+                {questions[currentQuestionIndex].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswer(option.pointsTo)}
+                    className="w-full text-left p-4 rounded-xl bg-gray-800 text-indigo-200 border-2 border-transparent hover:border-indigo-600 hover:bg-gray-700 transition-all text-sm"
+                  >
+                    {option.text}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-6 p-6 bg-gray-900 rounded-2xl border-2 border-indigo-900 shadow-3xl">
+              {resultType && (
+                <>
+                  <div className={`text-6xl ${shopperTypes[resultType].color} mb-4`}>{shopperTypes[resultType].icon}</div>
+                  <div className={`text-3xl font-black ${shopperTypes[resultType].color} mb-2 tracking-tighter`}>{resultType}</div>
+                  <p className="text-lg text-gray-50">{shopperTypes[resultType].description}</p>
+                  <div className="p-5 bg-black rounded-xl text-left border border-indigo-900 space-y-3">
+                    <p className="text-sm font-semibold text-indigo-300">BrainMart Analysis:</p>
+                    <p className="text-sm text-gray-400 leading-relaxed">{shopperTypes[resultType].details}</p>
+                  </div>
+                </>
+              )}
+              <button
+                onClick={resetQuiz}
+                className="inline-block mt-6 px-6 py-3 rounded-full bg-indigo-600 text-white font-bold hover:bg-indigo-500 transition"
+              >
+                Retake the Quiz
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Strategy Simulator Section */}
       <section className="px-4 py-12 bg-black border-t-2 border-indigo-900 shadow-[0_-10px_30px_rgba(79,70,229,0.3)]">
@@ -437,53 +484,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* FIXED: Shopper Type Quiz Section */}
-      <section className="px-4 py-16 bg-gray-950 border-t border-gray-800 shadow-3xl text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Explore Your Shopper Type</h2>
-          <p className="text-gray-400 text-sm mb-8 max-w-sm mx-auto">Scan & discover how the "Consumer Brain" model identifies your personality!</p>
-
-          {!showResult ? (
-            <div className="space-y-6">
-              <div className="p-4 bg-gray-900 rounded-lg text-lg text-gray-100 font-semibold border border-indigo-700">
-                Q{currentQuestionIndex + 1}: {questions[currentQuestionIndex].text}
-              </div>
-              <div className="grid grid-cols-1 gap-3">
-                {questions[currentQuestionIndex].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option.pointsTo)}
-                    className="w-full text-left p-4 rounded-xl bg-gray-800 text-indigo-200 border-2 border-transparent hover:border-indigo-600 hover:bg-gray-700 transition-all text-sm"
-                  >
-                    {option.text}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-6 p-6 bg-gray-900 rounded-2xl border-2 border-indigo-900 shadow-3xl">
-              {resultType && (
-                <>
-                  <div className={`text-6xl ${shopperTypes[resultType].color} mb-4`}>{shopperTypes[resultType].icon}</div>
-                  <div className={`text-3xl font-black ${shopperTypes[resultType].color} mb-2 tracking-tighter`}>{resultType}</div>
-                  <p className="text-lg text-gray-50">{shopperTypes[resultType].description}</p>
-                  <div className="p-5 bg-black rounded-xl text-left border border-indigo-900 space-y-3">
-                    <p className="text-sm font-semibold text-indigo-300">BrainMart Analysis:</p>
-                    <p className="text-sm text-gray-400 leading-relaxed">{shopperTypes[resultType].details}</p>
-                  </div>
-                </>
-              )}
-              <button
-                onClick={resetQuiz}
-                className="inline-block mt-6 px-6 py-3 rounded-full bg-indigo-600 text-white font-bold hover:bg-indigo-500 transition"
-              >
-                Retake the Quiz
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
