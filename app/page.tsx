@@ -205,12 +205,95 @@ export default function Home() {
         <p className="text-sm opacity-90 text-indigo-300">How Marketing Hacks Your Decisions</p>
       </header> */}
 
-      {/* Header */}
       <header className="bg-gray-950 p-3 text-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-b-2 border-indigo-900 sticky top-0 z-50">
-        <div className="relative w-full h-16 max-w-sm mx-auto mb-4">
+        {/* <div className="relative w-full h-16 max-w-sm mx-auto mb-4">
           <div className="flex items-center justify-center w-full h-full bg-gray-900 text-indigo-300 italic rounded-md">
             [BrainMart Logo]
           </div>
+        </div> */}
+
+        {/* Non-Glow logo */}
+        {/* <div className="relative w-full h-20 max-w-sm mx-auto mb-4 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" className="w-full h-full drop-shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+            <defs>
+              <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#a855f7" />
+                <stop offset="100%" stopColor="#6366f1" />
+              </linearGradient>
+              <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#ec4899" />
+                <stop offset="100%" stopColor="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            
+            <g transform="translate(15, 15)">
+              <path d="M 0,5 L 12,5 L 20,40 L 55,40 L 65,15 L 16,15" fill="none" stroke="url(#neonPurple)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="25" cy="52" r="5" fill="#8b5cf6" />
+              <circle cx="50" cy="52" r="5" fill="#8b5cf6" />
+              
+              <path d="M 23,28 Q 30,8 40,25 T 60,18" fill="none" stroke="url(#neonPink)" strokeWidth="4" strokeLinecap="round" />
+              
+              <path d="M 25,35 Q 35,22 45,35 T 55,30" fill="none" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" />
+            </g>
+
+            <text x="100" y="55" fontFamily="monospace" fontSize="42" fontWeight="900" fill="white" letterSpacing="-1">
+              BRAIN<tspan fill="url(#neonPurple)">MART</tspan>
+            </text>
+          </svg>
+        </div> */}
+
+        {/* Glow Logo */}
+        <div className="relative w-full h-24 max-w-sm mx-auto mb-4 flex items-center justify-center">
+          {/* Note: overflow-visible ensures the glow doesn't get cut off at the edges */}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" className="w-full h-full overflow-visible">
+            <defs>
+              {/* Neon Gradients */}
+              <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#d8b4fe" /> {/* lighter purple */}
+                <stop offset="100%" stopColor="#818cf8" /> {/* lighter indigo */}
+              </linearGradient>
+              <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#f472b6" /> 
+                <stop offset="100%" stopColor="#c084fc" /> 
+              </linearGradient>
+
+              {/* The True Neon Glow Filter */}
+              <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
+                {/* Merging multiple blurs with the original graphic creates a hot core and soft outer glow */}
+                <feMerge>
+                  <feMergeNode in="blur2" />
+                  <feMergeNode in="blur1" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            
+            {/* Logo Icon (Cart + Brain Waves) */}
+            <g transform="translate(15, 15)">
+              {/* Group with the glow filter applied */}
+              <g filter="url(#neonGlow)">
+                {/* Shopping Cart Outline */}
+                <path d="M 0,5 L 12,5 L 20,40 L 55,40 L 65,15 L 16,15" fill="none" stroke="url(#neonPurple)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                
+                {/* Brain Wave 1 (Inside Cart) */}
+                <path d="M 23,28 Q 30,8 40,25 T 60,18" fill="none" stroke="url(#neonPink)" strokeWidth="4" strokeLinecap="round" />
+                
+                {/* Brain Wave 2 (Inside Cart) */}
+                <path d="M 25,35 Q 35,22 45,35 T 55,30" fill="none" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" />
+              </g>
+              
+              {/* Wheels (Kept sharp without glow for contrast) */}
+              <circle cx="25" cy="52" r="5" fill="#a78bfa" />
+              <circle cx="50" cy="52" r="5" fill="#a78bfa" />
+            </g>
+
+            {/* Typography */}
+            <text x="100" y="55" fontFamily="monospace" fontSize="42" fontWeight="900" fill="white" letterSpacing="-1">
+              BRAIN<tspan fill="url(#neonPurple)" filter="url(#neonGlow)">MART</tspan>
+            </text>
+          </svg>
         </div>
         <h1 className="text-3xl font-black mb-1 tracking-tighter text-white uppercase">The Consumer Brain</h1>
         <p className="text-sm opacity-90 text-indigo-300 mb-2">How Marketing Hacks Your Decisions</p>
@@ -249,17 +332,25 @@ export default function Home() {
         <h2 className="text-3xl font-black text-center text-white mb-8 tracking-tighter uppercase">THE BRAINMART TOUR</h2>
 
         {[
-          { title: 'PREMIUM ZONE', num: '1', trick: 'Visual Exclusivity', desc: 'High-contrast lighting and premium colors (gold, black) signal luxury and exclusivity. This creates a halo effect and makes expensive items feel more justified.', imageSrc: '/zone-premium.jpg' },
+          { title: 'PREMIUM ZONE', num: '1', trick: 'Visual Exclusivity', desc: 'High-contrast lighting and premium colors (gold, black) signal luxury and exclusivity. This creates a halo effect and makes expensive items feel more justified.', imageSrc: '/zone-premium-v2.jpg' },
           { title: 'EYE LEVEL IS BUY LEVEL', num: '2', trick: 'Vertical Placement', desc: 'The middle shelves are "buy-level." Premium brands pay more to be here. Cheaper alternatives are on the bottom, requiring effort to find.', imageSrc: '/zone-eyelevel.jpg' },
           { title: 'POWER OF PACKAGING', num: '3', trick: 'Psychology of Color & Design', desc: 'Attractive, well-designed packaging activates the SEE and FEEL decision-making steps. Colors evoke emotions; shapes signal reliability.', imageSrc: '/zone-packaging.jpg' },
           { title: 'LIMITED TIME OFFER', num: '4', trick: 'Scarcity Bias', desc: 'Tactics like "Buy 1 Get 1 Free" create an artificial sense of urgency and perceived value, leading to emotional decisions (impulse purchases).', imageSrc: '/zone-limited.jpg' },
           { title: 'CHECKOUT ZONE', num: '5', trick: 'Decision Fatigue Gauntlet', desc: 'After making hundreds of small decisions, you are mentally fatigued at the checkout. Stores line this area with impulse buys to capture emotional purchases.', imageSrc: '/zone-checkout.jpg' }
         ].map(zone => (
           <article key={zone.num} className="bg-gray-950 rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
-            <div className="relative w-full h-56">
+            {/* <div className="relative w-full h-56">
               <div className="flex items-center justify-center w-full h-full bg-gray-900 border-b border-gray-800 text-indigo-300 italic">
                 [{zone.title} Shelf Image]
               </div>
+            </div> */}
+            <div className="relative w-full h-56 bg-gray-900">
+              <Image 
+                src={zone.imageSrc} 
+                alt={`${zone.title} Shelf`} 
+                fill
+                className="object-cover border-b border-gray-800"
+              />
             </div>
             <div className="p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -296,12 +387,12 @@ export default function Home() {
       {/* FIXED: Shopper Type Quiz Section */}
       <section className="px-4 py-16 bg-gray-950 border-t border-gray-800 shadow-3xl text-center">
         <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Ready to Discover Your Shopping Personality?</h2>
+          <h2 className="text-3xl font-black text-white mb-4 tracking-tighter uppercase">Everyone shops. But do you know how you shop?</h2>
           <p className="text-gray-400 text-sm mb-8 max-w-sm mx-auto">Discover Your Shopping Personality! Answer 5 quick questions to find out what kind of consumer you are and how marketing influences your buying decisions.</p>
 
           {!showResult ? (
             <div className="space-y-6">
-              <div className="p-4 bg-gray-900 rounded-lg text-lg text-gray-100 font-semibold border border-indigo-700">
+              <div className="p-4 bg-gray-900 rounded-lg text-lg text-gray-100 font-semibold border-2 border-transparent">
                 Q{currentQuestionIndex + 1}: {questions[currentQuestionIndex].text}
               </div>
               <div className="grid grid-cols-1 gap-3">
@@ -309,7 +400,7 @@ export default function Home() {
                   <button
                     key={index}
                     onClick={() => handleAnswer(option.pointsTo)}
-                    className="w-full text-left p-4 rounded-xl bg-gray-800 text-indigo-200 border-2 border-transparent hover:border-indigo-600 hover:bg-gray-700 transition-all text-sm"
+                    className="w-full text-left p-4 rounded-xl bg-gray-800 text-indigo-200 border border-indigo-700 hover:border-indigo-600 hover:bg-gray-700 transition-all text-sm"
                   >
                     {option.text}
                   </button>
