@@ -213,7 +213,7 @@ export default function Home() {
         </div> */}
 
         {/* Non-Glow logo */}
-        {/* <div className="relative w-full h-20 max-w-sm mx-auto mb-4 flex items-center justify-center">
+        <div className="relative w-full h-20 max-w-sm mx-auto mb-4 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" className="w-full h-full drop-shadow-[0_0_15px_rgba(139,92,246,0.4)]">
             <defs>
               <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -240,28 +240,24 @@ export default function Home() {
               BRAIN<tspan fill="url(#neonPurple)">MART</tspan>
             </text>
           </svg>
-        </div> */}
+        </div>
 
         {/* Glow Logo */}
-        <div className="relative w-full h-24 max-w-sm mx-auto mb-4 flex items-center justify-center">
-          {/* Note: overflow-visible ensures the glow doesn't get cut off at the edges */}
+        {/* <div className="relative w-full h-24 max-w-sm mx-auto mb-4 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" className="w-full h-full overflow-visible">
             <defs>
-              {/* Neon Gradients */}
               <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#d8b4fe" /> {/* lighter purple */}
-                <stop offset="100%" stopColor="#818cf8" /> {/* lighter indigo */}
+                <stop offset="0%" stopColor="#d8b4fe" />
+                <stop offset="100%" stopColor="#818cf8" />
               </linearGradient>
               <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#f472b6" /> 
                 <stop offset="100%" stopColor="#c084fc" /> 
               </linearGradient>
 
-              {/* The True Neon Glow Filter */}
               <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1" />
                 <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
-                {/* Merging multiple blurs with the original graphic creates a hot core and soft outer glow */}
                 <feMerge>
                   <feMergeNode in="blur2" />
                   <feMergeNode in="blur1" />
@@ -270,31 +266,24 @@ export default function Home() {
               </filter>
             </defs>
             
-            {/* Logo Icon (Cart + Brain Waves) */}
             <g transform="translate(15, 15)">
-              {/* Group with the glow filter applied */}
               <g filter="url(#neonGlow)">
-                {/* Shopping Cart Outline */}
                 <path d="M 0,5 L 12,5 L 20,40 L 55,40 L 65,15 L 16,15" fill="none" stroke="url(#neonPurple)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
                 
-                {/* Brain Wave 1 (Inside Cart) */}
                 <path d="M 23,28 Q 30,8 40,25 T 60,18" fill="none" stroke="url(#neonPink)" strokeWidth="4" strokeLinecap="round" />
                 
-                {/* Brain Wave 2 (Inside Cart) */}
                 <path d="M 25,35 Q 35,22 45,35 T 55,30" fill="none" stroke="#22d3ee" strokeWidth="3" strokeLinecap="round" />
               </g>
               
-              {/* Wheels (Kept sharp without glow for contrast) */}
               <circle cx="25" cy="52" r="5" fill="#a78bfa" />
               <circle cx="50" cy="52" r="5" fill="#a78bfa" />
             </g>
 
-            {/* Typography */}
             <text x="100" y="55" fontFamily="monospace" fontSize="42" fontWeight="900" fill="white" letterSpacing="-1">
               BRAIN<tspan fill="url(#neonPurple)" filter="url(#neonGlow)">MART</tspan>
             </text>
           </svg>
-        </div>
+        </div> */}
         <h1 className="text-3xl font-black mb-1 tracking-tighter text-white uppercase">The Consumer Brain</h1>
         <p className="text-sm opacity-90 text-indigo-300 mb-2">How Marketing Hacks Your Decisions</p>
         <p className="text-xs text-gray-500 font-semibold tracking-widest uppercase">By Juveriya Nazneen - BBA Final Year</p>
